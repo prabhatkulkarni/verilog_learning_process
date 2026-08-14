@@ -4,7 +4,7 @@ module ripple_adder_testbench;
 reg[3:0] A;
 reg[3:0] B;
 reg Cin;
-
+wire C[3:0];
 wire[3:0] sum;
 wire Cout;
 ripple_carry_adder_4bit r1 (
@@ -15,8 +15,8 @@ ripple_carry_adder_4bit r1 (
     .Cout(Cout)
     );
 initial begin
-    $monitor("Time=%0t A=%b B=%b Cin=%b | Sum=%b Cout=%b",
-             $time, A, B, Cin, sum, Cout);
+    $monitor("Time=%0t A=%b B=%b Cin=%b C=%b | Sum=%b Cout=%b",
+             $time, A, B, Cin, sum, Cout,C[0]);
 end
 initial begin
     //Test 1
@@ -36,8 +36,8 @@ initial begin
     #10;
     //Test 4
     A = 4'b1111;
-    B = 4'b0001;
-    Cin = 1'b0;
+    B = 4'b0000;
+    Cin = 1'b1;
     #10;
     //Test 5
     A = 4'b1111;

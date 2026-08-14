@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module full_adder(
     input int1 ,
     input int2 ,
@@ -20,5 +21,5 @@ half_adder h2(
     .sum(sum),
     .carry(carry2)
     );
-assign carry_out = carry1 | carry2 ;
+assign  #2 carry_out = carry1 | carry2 ;
 endmodule
